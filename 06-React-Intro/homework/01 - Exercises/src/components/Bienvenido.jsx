@@ -1,4 +1,5 @@
 import React from "react";
+import {Botones} from "./Botones.jsx";
 
 const studentName = "Gilberto";
 const techSkills = ["Html", "Css", "JavaScript", "React", "Redux"];
@@ -12,6 +13,7 @@ export default function Bienvenido() {
       <h1>Mi primera app con React</h1>
       <h3>{studentName}</h3>
       <ul>{techSkills.map((skills) =><li>{skills}</li>)}</ul>
+     <Botones />
     </div>
   );
 
