@@ -21,11 +21,20 @@ export default function Zoo({ zooName, animals, especies, allAnimals }) {
   }
 
   const handleSpecies = (event) => {
-
+    const speciesFiltered = zoo.allAnimals.filter((animal)=>{
+      return animal.specie === event.target.value
+    })
+    setZoo({
+      ...zoo,
+      animals: speciesFiltered
+    })
   }
 
   const handleAllSpecies = () => {
-
+    setZoo({
+      ...zoo,
+      animals:zoo.allAnimals
+    })
   }
 
   React.useEffect(() => {
