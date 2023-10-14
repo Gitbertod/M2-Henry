@@ -23,7 +23,7 @@ function contador(state = initialState, action) {
     case INCREMENTO_IMPAR:
       return {
         ...state,
-        contador: state.contador % 2 !== 0 && state.contador + 1
+        contador: state.contador % 2 !== 0 ? state.contador + 1:state.contador
       }
     default:
       return { ...state }

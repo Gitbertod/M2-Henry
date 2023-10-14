@@ -7,14 +7,21 @@ const alerts = { m1: "Aprobado", m2: "Conseguiras tu BOOM en enero de 2024" };
 
 export default function Bienvenido() {
   // el código de tu componente acá
-  
-  
+
+
   return (
     <div>
       <h1>Hola soy Glberto Díaz</h1>
       <h3>{studentName}</h3>
-      <ul>{techSkills.map((element,index) => <li key={index}>{element}</li>)}</ul>
-      <Botones alerts = {alerts}></Botones>
+
+      <ul>
+        {
+          techSkills.map((element, index) =>
+            <li key={index}>{element}</li>)
+        }
+      </ul>
+
+      <Botones alerts={alerts}/>
     </div>
   );
 

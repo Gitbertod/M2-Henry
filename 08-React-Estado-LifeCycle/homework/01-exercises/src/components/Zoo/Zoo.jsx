@@ -5,7 +5,7 @@ import Animals from "../Animals/Animals";
 import Species from "../Species/Species";
 import styledZoo from "./Zoo.module.css";
 
-export default function Zoo({ zooName, animals, especies, allAnimals }) {
+export default function Zoo() {
   /* Escribe acá tu código */
   const [zoo, setZoo] = React.useState({
     zooName: "",
@@ -21,7 +21,7 @@ export default function Zoo({ zooName, animals, especies, allAnimals }) {
   }
 
   const handleSpecies = (event) => {
-    const speciesFiltered = zoo.allAnimals.filter((animal)=>{
+    const speciesFiltered = zoo.allAnimals.filter((animal) => {
       return animal.specie === event.target.value
     })
     setZoo({
@@ -33,7 +33,7 @@ export default function Zoo({ zooName, animals, especies, allAnimals }) {
   const handleAllSpecies = () => {
     setZoo({
       ...zoo,
-      animals:zoo.allAnimals
+      animals: zoo.allAnimals
     })
   }
 
@@ -61,7 +61,9 @@ export default function Zoo({ zooName, animals, especies, allAnimals }) {
       <Species
         species={zoo.species}
         handleAllSpecies={handleAllSpecies}
-        handleSpecies={handleSpecies} />
+        handleSpecies={handleSpecies}
+      />
+
       <Animals animals={zoo.animals} />
     </div>
   );

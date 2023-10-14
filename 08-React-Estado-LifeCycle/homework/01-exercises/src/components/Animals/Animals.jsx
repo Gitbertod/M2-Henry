@@ -1,34 +1,44 @@
-import React from 'react';
+//import React from 'react';
+import React, { Component } from 'react';
 import styledAnimals from './Animals.module.css'
 
-// export default class Animals extends React.Component {
-//   constructor(props) {
-//     super();
-//   }
+class Animals extends Component {
+  render() {
+    const { animals } = this.props;
 
-//   render() {
-//     return <div></div>
-//   }
-// }
-
-const Animals = ({ animals,index }) => {
-  return (
-    <div key={index}>
-      {
-        animals.map((animal) => {
-
-          return (
-            <div>
-              <h5>{animal.name}</h5>
-              <img src={animal.image} alt={animal.name} width='300px'></img>
-              <span>{animal.specie}</span>
-            </div>
-          )
-        })
-      }
-    </div>
-
-  );
+    return (
+      <div>
+        {animals.map((animal, index) => (
+          <div key={index}>
+            <h5>{animal.name}</h5>
+            <img src={animal.image} width="300px" alt={animal.name} />
+            <span>{animal.specie}</span>
+          </div>
+        ))}
+      </div>
+    );
+  }
 }
 
 export default Animals;
+
+// const Animals = ({ animals }) => {
+//   return (
+//     <div>
+//       {
+//         animals.map((animal,index) => {
+//           return (
+//             <div key={index}>
+//               <h5>{animal.name}</h5>
+//               <img src={animal.image} alt={animal.name} width='300px'></img>
+//               <span>{animal.specie}</span>
+//             </div>
+//           )
+//         })
+//       }
+//     </div>
+
+//   );
+// }
+
+// export default Animals;
