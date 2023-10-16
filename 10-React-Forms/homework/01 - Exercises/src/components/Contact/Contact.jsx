@@ -42,20 +42,29 @@ export default function Contact() {
 
     setErros(validate({
       ...inputs,
-      [event.target.name] : event.target.value,
+      [event.target.name]: event.target.value,
     }))
   }
 
+ 
   return <div>
     <form>
       <label>Nombre:</label>
-      <input name='name' placeholder='Escribe tu nombre...' type='text' value={inputs.name} onChange={handleChange}></input>
+      <input name='name' placeholder='Escribe tu nombre...' type='text' value={inputs.name} onChange={handleChange} className={errors.name && 'warning'}></input>
+      {errors.name !== ""  ? <p>{errors.name}</p> : ''} /* validacion */
+      <p className='danger'>{errors.name}</p>
+
 
       <label>Correo Electrónico:</label>
-      <input name='email' placeholder='Escribe tu email...' type='text' value={inputs.email} onChange={handleChange} ></input>
+      <input name='email' placeholder='Escribe tu email...' type='text' value={inputs.email} onChange={handleChange} className={errors.email && 'warning'}>
+      </input>
+      {errors.email !== ""  ? <p>{errors.email}</p> : ''} /* validacion */
+      <p className='danger'>{errors.email}</p>
+
 
       <label>Mensaje:</label>
-      <textarea name='message' placeholder='Escribe tu mensaje...' type="text" value={inputs.message} onChange={handleChange} ></textarea>
+      <textarea name='message' placeholder='Escribe tu mensaje...' type="text" value={inputs.message} onChange={handleChange} className={errors.message && 'warning'}></textarea>
+      <p className='danger'>{errors.message}</p>
       <button type='submit'>Enviar</button>
     </form>
 
